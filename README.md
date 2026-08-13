@@ -3,8 +3,8 @@
   <!-- Main Banner SVG -->
   <a href="https://github.com/bunnyvalluri/Bunnyvalluri">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dark.svg">
-      <img alt="Bunny Valluri | Engineering Profile Header" src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/light.svg" width="100%">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/assets/images/dark.svg">
+      <img alt="Bunny Valluri | Engineering Profile Header" src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/assets/images/light.svg" width="100%">
     </picture>
   </a>
 

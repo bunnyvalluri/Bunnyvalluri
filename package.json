@@ -4,8 +4,8 @@
   "type": "module",
   "description": "GitHub Profile README & Jet Heatmap SVG Generator for Bunny Valluri",
   "scripts": {
-    "generate": "node generate.mjs && node generate-cards.mjs",
-    "test:preview": "node preview-test.mjs && node generate-cards.mjs"
+    "generate": "node src/js/generate.mjs && node src/js/generate-cards.mjs",
+    "test:preview": "node src/js/preview-test.mjs && node src/js/generate-cards.mjs"
   },
   "keywords": [],
   "author": "Bunny Valluri",
