@@ -1,15 +1,16 @@
-<h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Outfit&weight=700&size=32&duration=3000&pause=1000&color=39D353&center=true&vCenter=true&width=500&lines=%F0%9F%91%8B+Hi%2C+I'm+V.+Rahul;Computer+Science+Engineer;Creative+Frontend+Developer" alt="Typing SVG" />
-</h1>
-
-<p align="center">
-  <strong>Computer Science & Engineering Student @ Narsimha Reddy Engineering College</strong>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/B.Tech-Computer%20Science%20%26%20Engineering-4A154B?style=for-the-badge&logo=opsgenie&logoColor=white" alt="B.Tech CSE" />
-  <img src="https://img.shields.io/badge/Focus-Frontend%20Engineering-39D353?style=for-the-badge&logo=frontendmentor&logoColor=black" alt="Focus Frontend" />
-</p>
+<a href="https://github.com/bunnyvalluri/Bunnyvalluri">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dark.svg">
+    <img alt="GitHub Profile README" src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/light.svg">
+  </picture>
+  <p align="center">
+    <img
+      src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/github-jet.svg"
+      alt="GitHub Jet Heatmap"
+      width="100%"
+    />
+  </p>
+</a>
 
 ---
 
@@ -17,11 +18,11 @@
 
 I am a passionate **Frontend Developer & Computer Science Engineering candidate (B.Tech, 4th Year)** at **Narsimha Reddy Engineering College**. I specialize in creating highly interactive, visual, and performant web applications, focusing on modern Javascript frameworks, clean UI/UX paradigms, and complex web animations.
 
-*   🔭 **Active Venture**: Developing high-fidelity graphics on the web with [3D-Animations-Butterfly🦋](https://bunnyvalluri.github.io/Butterfly-animation/)
-*   🌱 **Skill Expansion**: Deepening knowledge in the MERN architecture (**React JS, Node JS, Express JS**)
-*   👯 **Collaboration**: Actively looking to work on innovative web applications and creative layouts. Explore my [Interactive Portfolio](https://valluri-rahul-portfolio.vercel.app/)
-*   👨💻 **Portfolio Directory**: Access all live builds and project instances at [buni.netlify.app](https://buni.netlify.app/)
-*   📬 **Direct Line**: [vallurirahul3@gmail.com](mailto:vallurirahul3@gmail.com)
+* 🔭 **Active Venture**: Developing high-fidelity graphics on the web with [3D-Animations-Butterfly 🦋](https://bunnyvalluri.github.io/Butterfly-animation/)
+* 🌱 **Skill Expansion**: Deepening knowledge in the MERN architecture (**React JS, Node JS, Express JS**)
+* 👯 **Collaboration**: Actively looking to work on innovative web applications and creative layouts. Explore my [Interactive Portfolio](https://valluri-rahul-portfolio.vercel.app/)
+* 👨‍💻 **Portfolio Directory**: Access all live builds and project instances at [buni.netlify.app](https://buni.netlify.app/)
+* 📬 **Direct Line**: [vallurirahul3@gmail.com](mailto:vallurirahul3@gmail.com)
 
 ---
 
@@ -45,6 +46,8 @@ I am a passionate **Frontend Developer & Computer Science Engineering candidate 
   <img src="https://img.shields.io/badge/Express.JS-404D59?style=flat-square&logo=express&logoColor=white" alt="Express" />
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white" alt="Flask" />
+  <img src="https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=white" alt="C" />
+  <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C++" />
 </p>
 
 ### 🗄️ Databases & Cloud Operations
@@ -74,6 +77,15 @@ I am a passionate **Frontend Developer & Computer Science Engineering candidate 
 
 ### 💼 [Interactive Developer Portfolio](https://valluri-rahul-portfolio.vercel.app/)
 > *My comprehensive developer profile displaying live systems integration, custom styled components, and responsive grid patterns.*
+
+---
+
+## 📊 GitHub Analytics
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=bunnyvalluri&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117" alt="Bunny's GitHub Stats" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bunnyvalluri&layout=compact&theme=dark&hide_border=true&bg_color=0d1117" alt="Top Languages" width="48%" />
+</p>
 
 ---
 
