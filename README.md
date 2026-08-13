@@ -86,24 +86,6 @@ I am a passionate **Frontend Developer & Computer Science Engineering candidate 
 
 ---
 
-## 🏆 GitHub Achievements
-
-<p align="left">
-  <a href="https://github.com/bunnyvalluri?tab=achievements" target="_blank">
-    <img src="https://github.githubassets.com/assets/quickdraw-default-39ecb6b08051.png" width="105" alt="Quickdraw Achievement" title="Quickdraw: Closed an issue or PR within 5 minutes" />
-  </a>
-  <a href="https://github.com/bunnyvalluri?tab=achievements" target="_blank">
-    <img src="https://github.githubassets.com/assets/starstruck-default-b6613afd4e67.png" width="105" alt="Starstruck Achievement" title="Starstruck: Created a repository with 16+ stars" />
-  </a>
-</p>
-
-<p align="left">
-  <img src="https://img.shields.io/badge/Achievement-Quickdraw%20⚡-FFD700?style=for-the-badge&logo=github&logoColor=black" alt="Quickdraw" />
-  <img src="https://img.shields.io/badge/Achievement-Starstruck%20⭐-FF69B4?style=for-the-badge&logo=github&logoColor=white" alt="Starstruck" />
-</p>
-
----
-
 ## 📬 Connect With Me
 
 <p align="left">
