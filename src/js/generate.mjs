@@ -1,7 +1,7 @@
 /**
- * Generates an animated GitHub contribution heatmap SVG featuring a sleek sci-fi stealth fighter
- * that traverses active contribution days with dynamic banking physics, dual laser pulse streams,
- * rotating crosshair target locks, and explosive impact shockwaves.
+ * Generates an animated GitHub contribution heatmap SVG featuring an authentic space rocket 🚀
+ * that traverses active contribution days, fires vertical laser streams from its nose cone,
+ * locks onto target cells with crosshairs, and emits dynamic fiery rocket exhaust plumes.
  *
  * Environment variables:
  *   GH_USERNAME  - GitHub username (default: bunnyvalluri)
@@ -23,14 +23,14 @@ const GRID_X = 20;
 const GRID_Y = 24;
 const WIDTH = 513;
 const HEIGHT = 175;
-const JET_X_START = 35;
-const JET_X_END = 478;
+const ROCKET_X_START = 35;
+const ROCKET_X_END = 478;
 const LOOP_DUR = 20; // seconds, one full pass
 const MAX_TARGETS = 14; // busiest days target count
 const FLASH_COLOR = "#38bdf8";
 const SECONDARY_FLASH = "#34d399";
 const BLAST_COLOR = "#38bdf8";
-const PAD_Y = 135; // where laser cannons launch
+const NOSE_LAUNCH_Y = 120; // Nose cone tip rocket launch point
 
 if (!USERNAME) {
   console.error("Missing GH_USERNAME env var");
@@ -190,10 +190,9 @@ function buildBulletsAndBlasts(targets) {
         `</circle>` +
         `</g>\n`;
 
-      // Dual High-Speed Laser Beam Pulse
+      // Vertical Rocket Energy Beam
       bullets += `<g opacity="0">` +
-        `<line x1="${cx - 4}" y1="${PAD_Y}" x2="${cx - 1}" y2="${targetY}" stroke="url(#laserGrad)" stroke-width="1.8"/>` +
-        `<line x1="${cx + 4}" y1="${PAD_Y}" x2="${cx + 1}" y2="${targetY}" stroke="url(#laserGrad)" stroke-width="1.8"/>` +
+        `<line x1="${cx}" y1="${NOSE_LAUNCH_Y}" x2="${cx}" y2="${targetY}" stroke="url(#rocketLaserGrad)" stroke-width="2.2"/>` +
         `<animate attributeName="opacity" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
         `keyTimes="0;${fmt(rise)};${fmt(arrive)};${fmt(fadeEnd)};1" values="0;0.9;1;0;0"/>` +
         `</g>\n`;
@@ -229,50 +228,62 @@ function buildStars() {
   ).join("\n");
 }
 
-function buildCyberJet() {
-  return `<g id="jet-wrapper">
-  <!-- Motion Trajectory Translation -->
-  <g>
+function buildRealRocket() {
+  return `<g id="rocket-wrapper">
+  <!-- Rocket Motion Trajectory Translation across canvas -->
+  <g transform="translate(0, 142)">
     <animateTransform attributeName="transform" type="translate"
       dur="${LOOP_DUR}s" repeatCount="indefinite"
       keyTimes="0;0.48;0.50;0.98;1"
-      values="${JET_X_START},140;${JET_X_END},140;${JET_X_END},140;${JET_X_START},140;${JET_X_START},140"/>
+      values="${ROCKET_X_START},142;${ROCKET_X_END},142;${ROCKET_X_END},142;${ROCKET_X_START},142;${ROCKET_X_START},142"/>
 
-    <!-- Dynamic Banking Rotation Physics -->
+    <!-- Subtle Upright Hover Flight Tilt -->
     <g>
       <animateTransform attributeName="transform" type="rotate"
         dur="${LOOP_DUR}s" repeatCount="indefinite"
-        keyTimes="0;0.47;0.50;0.97;1"
-        values="12 0 0; 12 0 0; -12 0 0; -12 0 0; 12 0 0"/>
+        keyTimes="0;0.25;0.50;0.75;1"
+        values="4 0 0; -4 0 0; 4 0 0; -4 0 0; 4 0 0"/>
 
-      <!-- Cyber Stealth Interceptor Aircraft Model -->
-      <!-- Wings & Stealth Fuselage -->
-      <polygon points="0,-24 16,10 7,5 -7,5 -16,10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.6"/>
-      <polygon points="0,-20 10,6 4,3 -4,3 -10,6" fill="#1e293b"/>
+      <!-- Authentic Space Rocket 🚀 Model -->
+
+      <!-- Outer Fiery Exhaust Plume -->
+      <polygon points="-5,22 5,22 0,44" fill="url(#outerRocketFlame)">
+        <animate attributeName="points" values="-5,22 5,22 0,44; -6,22 6,22 0,48; -5,22 5,22 0,42; -5,22 5,22 0,44" dur="0.12s" repeatCount="indefinite"/>
+      </polygon>
+
+      <!-- Inner Hot Core Flame -->
+      <polygon points="-3,22 3,22 0,36" fill="url(#innerRocketFlame)">
+        <animate attributeName="points" values="-3,22 3,22 0,36; -3.5,22 3.5,22 0,39; -2.5,22 2.5,22 0,34; -3,22 3,22 0,36" dur="0.08s" repeatCount="indefinite"/>
+      </polygon>
+
+      <!-- White Hot Thruster Spark Core -->
+      <ellipse cx="0" cy="24" rx="2" ry="3" fill="#ffffff">
+        <animate attributeName="ry" values="3;5;2.5;3" dur="0.1s" repeatCount="indefinite"/>
+      </ellipse>
+
+      <!-- Left Swept Aerodynamic Rocket Fin -->
+      <path d="M-7,8 L-16,23 L-7,19 Z" fill="#ef4444" stroke="#dc2626" stroke-width="1"/>
+
+      <!-- Right Swept Aerodynamic Rocket Fin -->
+      <path d="M7,8 L16,23 L7,19 Z" fill="#ef4444" stroke="#dc2626" stroke-width="1"/>
+
+      <!-- Main White Cylindrical Fuselage Stage -->
+      <rect x="-7" y="-5" width="14" height="25" rx="1.5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
       
-      <!-- Cyan Edge Glow Trim Lines -->
-      <line x1="0" y1="-24" x2="16" y2="10" stroke="#38bdf8" stroke-width="1.8"/>
-      <line x1="0" y1="-24" x2="-16" y2="10" stroke="#38bdf8" stroke-width="1.8"/>
+      <!-- Red Fuselage Accent Stripe -->
+      <rect x="-7" y="1" width="14" height="3.5" fill="#ef4444"/>
 
-      <!-- Wingtip Dual Plasma Cannons -->
-      <circle cx="-16" cy="10" r="2.2" fill="#38bdf8"/>
-      <circle cx="16" cy="10" r="2.2" fill="#38bdf8"/>
-      <circle cx="-16" cy="10" r="1" fill="#ffffff"/>
-      <circle cx="16" cy="10" r="1" fill="#ffffff"/>
+      <!-- Cyan Circular Porthole Window -->
+      <circle cx="0" cy="8" r="3.2" fill="#0284c7" stroke="#38bdf8" stroke-width="1.2"/>
+      <circle cx="-1" cy="7" r="1" fill="#ffffff"/>
 
-      <!-- Cockpit Glass Canopy -->
-      <path d="M-4,-9 Q0,-18 4,-9 Q0,-2 -4,-9 Z" fill="#38bdf8" stroke="#e0f2fe" stroke-width="1"/>
-      <circle cx="0" cy="-10" r="1.5" fill="#ffffff"/>
+      <!-- Aerodynamic Red Rocket Nose Cone -->
+      <path d="M0,-27 Q-7,-12 -7,-5 L7,-5 Q7,-12 0,-27 Z" fill="#ef4444" stroke="#dc2626" stroke-width="1"/>
+      <!-- Nose Cone Specular Highlight -->
+      <path d="M0,-24 Q-4,-12 -4,-6" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
 
-      <!-- Dual Plasma Engine Flames -->
-      <g>
-        <polygon points="-6,7 -2,7 -4,22" fill="url(#thrusterGrad)">
-          <animate attributeName="opacity" values="0.7;1;0.6;1" dur="0.12s" repeatCount="indefinite"/>
-        </polygon>
-        <polygon points="2,7 6,7 4,22" fill="url(#thrusterGrad)">
-          <animate attributeName="opacity" values="0.6;1;0.8;1" dur="0.14s" repeatCount="indefinite"/>
-        </polygon>
-      </g>
+      <!-- Rocket Engine Bell Nozzle -->
+      <polygon points="-5,20 5,20 4,24 -4,24" fill="#475569" stroke="#334155" stroke-width="0.8"/>
     </g>
   </g>
 </g>`;
@@ -285,21 +296,28 @@ function buildSvg(weeks) {
 
   return `<svg viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <!-- Linear Gradient for Dual Laser Beams -->
-  <linearGradient id="laserGrad" x1="0%" y1="100%" x2="0%" y2="0%">
-    <stop offset="0%" stop-color="#38bdf8" stop-opacity="1"/>
-    <stop offset="60%" stop-color="#34d399" stop-opacity="0.85"/>
-    <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+  <!-- Rocket Laser Pulse Gradient -->
+  <linearGradient id="rocketLaserGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+    <stop offset="0%" stop-color="#ef4444" stop-opacity="1"/>
+    <stop offset="40%" stop-color="#38bdf8" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
   </linearGradient>
 
-  <!-- Plasma Thruster Flame Gradient -->
-  <linearGradient id="thrusterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#38bdf8"/>
-    <stop offset="40%" stop-color="#fbbf24"/>
+  <!-- Outer Orange/Red Rocket Flame Gradient -->
+  <linearGradient id="outerRocketFlame" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#f97316"/>
+    <stop offset="60%" stop-color="#ef4444"/>
     <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
   </linearGradient>
 
-  <!-- Futuristic Cyber Border Gradient -->
+  <!-- Inner Yellow Core Flame Gradient -->
+  <linearGradient id="innerRocketFlame" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#ffffff"/>
+    <stop offset="40%" stop-color="#fef08a"/>
+    <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.2"/>
+  </linearGradient>
+
+  <!-- Cyber Border Frame Gradient -->
   <linearGradient id="frameBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
     <stop offset="0%" stop-color="#38bdf8"/>
     <stop offset="50%" stop-color="#818cf8"/>
@@ -312,19 +330,19 @@ function buildSvg(weeks) {
 
 ${buildStars()}
 
-<!-- Radar HUD Top Status Header -->
+<!-- Space Rocket Radar Status Header -->
 <g transform="translate(20, 16)">
   <circle cx="4" cy="-3" r="3" fill="#ef4444">
     <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
   </circle>
-  <text x="14" y="0" font-family="monospace" font-size="9" fill="#38bdf8" font-weight="bold" letter-spacing="1">RADAR INTERCEPTOR // ACTIVE CONTRIBUTION MATRIX</text>
+  <text x="14" y="0" font-family="monospace" font-size="9" fill="#38bdf8" font-weight="bold" letter-spacing="1">ROCKET LAUNCH RADAR 🚀 // ACTIVE CONTRIBUTION MATRIX</text>
 </g>
 
 <!-- Contribution Grid -->
 <g id="grid">
 ${buildGrid(cells, targets)}</g>
 
-<!-- High-Speed Dual Laser Pulse Streams -->
+<!-- Vertical Rocket Energy Beams -->
 <g id="bullets">
 ${bullets}</g>
 
@@ -332,13 +350,13 @@ ${bullets}</g>
 <g id="blasts">
 ${blasts}</g>
 
-<!-- Stealth Fighter Aircraft -->
-${buildCyberJet()}
+<!-- Authentic Space Rocket 🚀 -->
+${buildRealRocket()}
 </svg>`;
 }
 
 async function main() {
-  console.log(`Generating high-performance SVG jet heatmap for ${USERNAME}...`);
+  console.log(`Generating space rocket 🚀 heatmap SVG for ${USERNAME}...`);
   const weeks = await fetchWeeks();
   const svg = buildSvg(weeks);
   const outPath = path.resolve(OUTPUT);
