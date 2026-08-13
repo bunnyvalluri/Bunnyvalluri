@@ -1,7 +1,7 @@
 /**
- * Generates an animated GitHub contribution heatmap SVG featuring a sleek sci-fi jet
- * that traverses active contribution days with dynamic banking animation, dual laser beams,
- * crosshair locking, and energetic impact shockwaves.
+ * Generates an animated GitHub contribution heatmap SVG featuring a sleek sci-fi stealth fighter
+ * that traverses active contribution days with dynamic banking physics, dual laser pulse streams,
+ * rotating crosshair target locks, and explosive impact shockwaves.
  *
  * Environment variables:
  *   GH_USERNAME  - GitHub username (default: bunnyvalluri)
@@ -20,7 +20,7 @@ const ROWS = 7;
 const CELL = 11;
 const STEP = 14; // cell + gap
 const GRID_X = 20;
-const GRID_Y = 22;
+const GRID_Y = 24;
 const WIDTH = 513;
 const HEIGHT = 175;
 const JET_X_START = 35;
@@ -29,9 +29,8 @@ const LOOP_DUR = 20; // seconds, one full pass
 const MAX_TARGETS = 14; // busiest days target count
 const FLASH_COLOR = "#38bdf8";
 const SECONDARY_FLASH = "#34d399";
-const BULLET_COLOR = "#38bdf8";
 const BLAST_COLOR = "#38bdf8";
-const PAD_Y = 136; // where laser cannons launch
+const PAD_Y = 135; // where laser cannons launch
 
 if (!USERNAME) {
   console.error("Missing GH_USERNAME env var");
@@ -62,21 +61,26 @@ async function fetchWeeks() {
     return mockWeeks();
   }
 
-  const res = await fetch("https://api.github.com/graphql", {
-    method: "POST",
-    headers: {
-      Authorization: `bearer ${TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query: QUERY, variables: { login: USERNAME } }),
-  });
-  if (!res.ok) {
-    console.warn(`GitHub API GraphQL returned ${res.status}, using preview dataset`);
+  try {
+    const res = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      headers: {
+        Authorization: `bearer ${TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query: QUERY, variables: { login: USERNAME } }),
+    });
+    if (!res.ok) {
+      console.warn(`GitHub API GraphQL returned ${res.status}, using preview dataset`);
+      return mockWeeks();
+    }
+    const json = await res.json();
+    if (json.errors) throw new Error(JSON.stringify(json.errors));
+    return json.data.user.contributionsCollection.contributionCalendar.weeks;
+  } catch (err) {
+    console.warn("GraphQL error, using mock data:", err.message);
     return mockWeeks();
   }
-  const json = await res.json();
-  if (json.errors) throw new Error(JSON.stringify(json.errors));
-  return json.data.user.contributionsCollection.contributionCalendar.weeks;
 }
 
 function mockWeeks() {
@@ -178,25 +182,35 @@ function buildBulletsAndBlasts(targets) {
       const cx = fmt(c.x + CELL / 2);
       const targetY = fmt(c.y + CELL / 2);
 
-      // High-speed Laser Pulse Beam
-      bullets += `<line x1="${cx}" y1="${PAD_Y}" x2="${cx}" y2="${targetY}" stroke="url(#laserGrad)" stroke-width="2" opacity="0">` +
+      // Rotating Target Crosshair Lock
+      blasts += `<g opacity="0">` +
+        `<circle cx="${cx}" cy="${targetY}" r="7" fill="none" stroke="#38bdf8" stroke-width="0.8" stroke-dasharray="3 2">` +
+        `<animate attributeName="opacity" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
+        `keyTimes="0;${fmt(rise)};${fmt(arrive)};${fmt(fadeEnd)};1" values="0;1;0.8;0;0"/>` +
+        `</circle>` +
+        `</g>\n`;
+
+      // Dual High-Speed Laser Beam Pulse
+      bullets += `<g opacity="0">` +
+        `<line x1="${cx - 4}" y1="${PAD_Y}" x2="${cx - 1}" y2="${targetY}" stroke="url(#laserGrad)" stroke-width="1.8"/>` +
+        `<line x1="${cx + 4}" y1="${PAD_Y}" x2="${cx + 1}" y2="${targetY}" stroke="url(#laserGrad)" stroke-width="1.8"/>` +
         `<animate attributeName="opacity" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
         `keyTimes="0;${fmt(rise)};${fmt(arrive)};${fmt(fadeEnd)};1" values="0;0.9;1;0;0"/>` +
-        `</line>\n`;
+        `</g>\n`;
 
-      // Expanding Shockwave Burst
+      // Expanding Shockwave Burst + Particle Sparks
       blasts += `<g opacity="0">` +
-        `<circle cx="${cx}" cy="${targetY}" r="0" fill="none" stroke="${BLAST_COLOR}" stroke-width="1.8">` +
+        `<circle cx="${cx}" cy="${targetY}" r="0" fill="none" stroke="${BLAST_COLOR}" stroke-width="2">` +
         `<animate attributeName="r" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
-        `keyTimes="0;${fmt(arrive)};${fmt(arrive + dur * 3)};1" values="0;2;11;11"/>` +
+        `keyTimes="0;${fmt(arrive)};${fmt(arrive + dur * 3)};1" values="0;2;13;13"/>` +
         `<animate attributeName="opacity" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
         `keyTimes="0;${fmt(arrive)};${fmt(arrive + dur * 3)};1" values="0;1;0;0"/>` +
         `</circle>` +
-        `<circle cx="${cx}" cy="${targetY}" r="0" fill="none" stroke="#34d399" stroke-width="1">` +
+        `<circle cx="${cx}" cy="${targetY}" r="0" fill="none" stroke="#34d399" stroke-width="1.2">` +
         `<animate attributeName="r" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
-        `keyTimes="0;${fmt(arrive)};${fmt(arrive + dur * 2)};1" values="0;1;7;7"/>` +
+        `keyTimes="0;${fmt(arrive)};${fmt(arrive + dur * 2)};1" values="0;1;8;8"/>` +
         `<animate attributeName="opacity" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
-        `keyTimes="0;${fmt(arrive)};${fmt(arrive + dur * 2)};1" values="0;0.8;0;0"/>` +
+        `keyTimes="0;${fmt(arrive)};${fmt(arrive + dur * 2)};1" values="0;0.9;0;0"/>` +
         `</circle>` +
         `</g>\n`;
     }
@@ -206,44 +220,60 @@ function buildBulletsAndBlasts(targets) {
 
 function buildStars() {
   const pts = [
-    [10, 15, 1.2], [10, 65, 1.6], [10, 115, 2.0],
-    [503, 20, 1.2], [503, 75, 1.6], [503, 125, 2.0],
-    [40, 166, 1.4], [470, 166, 1.8], [250, 168, 2.2]
+    [12, 16, 1.2], [12, 68, 1.6], [12, 118, 2.0],
+    [501, 22, 1.2], [501, 78, 1.6], [501, 128, 2.0],
+    [45, 168, 1.4], [465, 168, 1.8], [255, 169, 2.2]
   ];
   return pts.map(([x, y, dur]) =>
-    `<circle cx="${x}" cy="${y}" r="1" fill="#38bdf8" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="${dur}s" repeatCount="indefinite"/></circle>`
+    `<circle cx="${x}" cy="${y}" r="1.1" fill="#38bdf8" opacity="0.6"><animate attributeName="opacity" values="0.2;1;0.2" dur="${dur}s" repeatCount="indefinite"/></circle>`
   ).join("\n");
 }
 
 function buildCyberJet() {
   return `<g id="jet-wrapper">
-  <!-- Dynamic Banking & Positioning -->
-  <g transform="translate(0, 144)">
-    <g id="jet-body">
-      <!-- Main Stealth Wing Body -->
-      <polygon points="0,-16 11,8 5,4 -5,4 -11,8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
-      <!-- Inner Cyber Accent Wings -->
-      <polygon points="-11,8 -17,14 -6,9" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>
-      <polygon points="11,8 17,14 6,9" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>
-      <!-- Wingtip Cannons -->
-      <circle cx="-14" cy="11" r="1.5" fill="#38bdf8"/>
-      <circle cx="14" cy="11" r="1.5" fill="#38bdf8"/>
-      <!-- Glowing Cockpit -->
-      <path d="M-3,-6 Q0,-12 3,-6 Q0,-2 -3,-6 Z" fill="#e0f2fe" stroke="#38bdf8" stroke-width="0.8"/>
-      <!-- Plasma Dual Thruster Flames -->
-      <polygon points="-4,8 -1,8 -2.5,17" fill="url(#thrusterGrad)">
-        <animate attributeName="opacity" values="0.6;1;0.7;1" dur="0.15s" repeatCount="indefinite"/>
-      </polygon>
-      <polygon points="1,8 4,8 2.5,17" fill="url(#thrusterGrad)">
-        <animate attributeName="opacity" values="0.7;1;0.6;1" dur="0.18s" repeatCount="indefinite"/>
-      </polygon>
-    </g>
-
-    <!-- Jet Motion Trajectory & Banking Angle -->
+  <!-- Motion Trajectory Translation -->
+  <g>
     <animateTransform attributeName="transform" type="translate"
       dur="${LOOP_DUR}s" repeatCount="indefinite"
       keyTimes="0;0.48;0.50;0.98;1"
-      values="${JET_X_START},144;${JET_X_END},144;${JET_X_END},144;${JET_X_START},144;${JET_X_START},144"/>
+      values="${JET_X_START},140;${JET_X_END},140;${JET_X_END},140;${JET_X_START},140;${JET_X_START},140"/>
+
+    <!-- Dynamic Banking Rotation Physics -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate"
+        dur="${LOOP_DUR}s" repeatCount="indefinite"
+        keyTimes="0;0.47;0.50;0.97;1"
+        values="12 0 0; 12 0 0; -12 0 0; -12 0 0; 12 0 0"/>
+
+      <!-- Cyber Stealth Interceptor Aircraft Model -->
+      <!-- Wings & Stealth Fuselage -->
+      <polygon points="0,-24 16,10 7,5 -7,5 -16,10" fill="#0f172a" stroke="#38bdf8" stroke-width="1.6"/>
+      <polygon points="0,-20 10,6 4,3 -4,3 -10,6" fill="#1e293b"/>
+      
+      <!-- Cyan Edge Glow Trim Lines -->
+      <line x1="0" y1="-24" x2="16" y2="10" stroke="#38bdf8" stroke-width="1.8"/>
+      <line x1="0" y1="-24" x2="-16" y2="10" stroke="#38bdf8" stroke-width="1.8"/>
+
+      <!-- Wingtip Dual Plasma Cannons -->
+      <circle cx="-16" cy="10" r="2.2" fill="#38bdf8"/>
+      <circle cx="16" cy="10" r="2.2" fill="#38bdf8"/>
+      <circle cx="-16" cy="10" r="1" fill="#ffffff"/>
+      <circle cx="16" cy="10" r="1" fill="#ffffff"/>
+
+      <!-- Cockpit Glass Canopy -->
+      <path d="M-4,-9 Q0,-18 4,-9 Q0,-2 -4,-9 Z" fill="#38bdf8" stroke="#e0f2fe" stroke-width="1"/>
+      <circle cx="0" cy="-10" r="1.5" fill="#ffffff"/>
+
+      <!-- Dual Plasma Engine Flames -->
+      <g>
+        <polygon points="-6,7 -2,7 -4,22" fill="url(#thrusterGrad)">
+          <animate attributeName="opacity" values="0.7;1;0.6;1" dur="0.12s" repeatCount="indefinite"/>
+        </polygon>
+        <polygon points="2,7 6,7 4,22" fill="url(#thrusterGrad)">
+          <animate attributeName="opacity" values="0.6;1;0.8;1" dur="0.14s" repeatCount="indefinite"/>
+        </polygon>
+      </g>
+    </g>
   </g>
 </g>`;
 }
@@ -255,21 +285,21 @@ function buildSvg(weeks) {
 
   return `<svg viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <!-- Linear Gradient for Vertical Laser Beams -->
+  <!-- Linear Gradient for Dual Laser Beams -->
   <linearGradient id="laserGrad" x1="0%" y1="100%" x2="0%" y2="0%">
     <stop offset="0%" stop-color="#38bdf8" stop-opacity="1"/>
-    <stop offset="60%" stop-color="#34d399" stop-opacity="0.8"/>
+    <stop offset="60%" stop-color="#34d399" stop-opacity="0.85"/>
     <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
   </linearGradient>
 
-  <!-- Thruster Plasma Flame Gradient -->
+  <!-- Plasma Thruster Flame Gradient -->
   <linearGradient id="thrusterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
     <stop offset="0%" stop-color="#38bdf8"/>
-    <stop offset="50%" stop-color="#fbbf24"/>
+    <stop offset="40%" stop-color="#fbbf24"/>
     <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
   </linearGradient>
 
-  <!-- Futuristic Border Gradient -->
+  <!-- Futuristic Cyber Border Gradient -->
   <linearGradient id="frameBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
     <stop offset="0%" stop-color="#38bdf8"/>
     <stop offset="50%" stop-color="#818cf8"/>
@@ -277,29 +307,32 @@ function buildSvg(weeks) {
   </linearGradient>
 </defs>
 
-<!-- Outer Cyber Card Frame -->
-<rect x="1" y="1" width="${WIDTH - 2}" height="${HEIGHT - 2}" rx="10" ry="10" fill="#090d16" stroke="url(#frameBorderGrad)" stroke-width="1.2" opacity="0.95"/>
+<!-- Outer Cyber Card Frame Container -->
+<rect x="1" y="1" width="${WIDTH - 2}" height="${HEIGHT - 2}" rx="12" ry="12" fill="#090d16" stroke="url(#frameBorderGrad)" stroke-width="1.4" opacity="0.95"/>
 
 ${buildStars()}
 
-<!-- Radar HUD Top Status Bar -->
-<g transform="translate(18, 15)">
-  <text x="0" y="0" font-family="monospace" font-size="9" fill="#38bdf8" font-weight="bold" opacity="0.8">SYSTEM RADAR // CONTRIBS SCANNER ACTIVE</text>
+<!-- Radar HUD Top Status Header -->
+<g transform="translate(20, 16)">
+  <circle cx="4" cy="-3" r="3" fill="#ef4444">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="14" y="0" font-family="monospace" font-size="9" fill="#38bdf8" font-weight="bold" letter-spacing="1">RADAR INTERCEPTOR // ACTIVE CONTRIBUTION MATRIX</text>
 </g>
 
 <!-- Contribution Grid -->
 <g id="grid">
 ${buildGrid(cells, targets)}</g>
 
-<!-- High-Speed Dual Laser Streams -->
+<!-- High-Speed Dual Laser Pulse Streams -->
 <g id="bullets">
 ${bullets}</g>
 
-<!-- Dynamic Impact Shockwaves -->
+<!-- Crosshairs & Explosive Shockwaves -->
 <g id="blasts">
 ${blasts}</g>
 
-<!-- Sci-Fi Stealth Jet Fighter -->
+<!-- Stealth Fighter Aircraft -->
 ${buildCyberJet()}
 </svg>`;
 }
