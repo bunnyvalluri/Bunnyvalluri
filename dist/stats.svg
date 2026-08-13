@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="200" viewBox="0 0 350 200" fill="none">
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #38bdf8; }
+    .label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 500; fill: #c9d1d9; }
+    .val { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; fill: #38bdf8; }
+    .card { fill: #0d1117; stroke: #30363d; stroke-width: 1px; rx: 10px; }
+  </style>
+  <rect class="card" width="350" height="200" rx="10" />
+  
+  <!-- Header -->
+  <g transform="translate(25, 35)">
+    <path d="M0 0 H12 V12 H0 Z" stroke="#38bdf8" stroke-width="2" fill="none"/>
+    <text x="20" y="4" class="title">Engineering Stats Overview</text>
+  </g>
+
+  <g transform="translate(25, 70)">
+    <!-- Row 1 -->
+    <text x="0" y="0" class="label">⚡ Total Contributions</text>
+    <text x="300" y="0" class="val" text-anchor="end">Active</text>
+    
+    <!-- Row 2 -->
+    <text x="0" y="30" class="label">💼 Featured Repositories</text>
+    <text x="300" y="30" class="val" text-anchor="end">32+</text>
+
+    <!-- Row 3 -->
+    <text x="0" y="60" class="label">🎨 Specialization</text>
+    <text x="300" y="60" class="val" text-anchor="end">Frontend / 3D UI</text>
+
+    <!-- Row 4 -->
+    <text x="0" y="90" class="label">🎓 Degree Status</text>
+    <text x="300" y="90" class="val" text-anchor="end">B.Tech CSE '25</text>
+  </g>
+</svg>

@@ -63,7 +63,7 @@
     <td width="38%" valign="top" align="center">
       <br/>
       <a href="https://github.com/bunnyvalluri">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=bunnyvalluri&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&title_color=38bdf8&text_color=94a3b8" width="100%" alt="Top Languages Overview" />
+        <img src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/languages.svg" width="100%" alt="Top Languages Overview" />
       </a>
       <br/><br/>
       <a href="https://valluri-rahul-portfolio.vercel.app/" target="_blank">
@@ -186,32 +186,7 @@
   </tr>
 </table>
 
----
 
-## 🏆 GitHub Achievements & Activity Dashboard
-
-<div align="center">
-
-  <a href="https://github.com/bunnyvalluri">
-    <img src="https://github-profile-trophies.vercel.app/?username=bunnyvalluri&theme=darkhub&no-frame=true&column=4&margin-w=15" alt="GitHub Trophies" width="95%" />
-  </a>
-
-  <br/><br/>
-
-  <table border="0">
-    <tr>
-      <td>
-        <img src="https://github-readme-stats.vercel.app/api?username=bunnyvalluri&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=38bdf8&icon_color=38bdf8&text_color=94a3b8" width="415" alt="GitHub Stats" />
-      </td>
-      <td>
-        <img src="https://github-readme-streak-stats.herokuapp.com/?user=bunnyvalluri&theme=dark&hide_border=true&background=0d1117&stroke=38bdf8&ring=38bdf8&fire=38bdf8&currStreakNum=38bdf8" width="415" alt="GitHub Streak Stats" />
-      </td>
-    </tr>
-  </table>
-
-</div>
-
----
 
 ## 🧩 Competitive Problem Solving
 
