@@ -12,14 +12,14 @@
 
   <!-- Dynamic Typing Headline -->
   <a href="https://github.com/bunnyvalluri">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=38BDF8&center=true&vCenter=true&width=650&height=45&lines=Frontend+%26+UI%2FUX+Engineer;3D+Web+Graphics+%26+Animation+Specialist;Full-Stack+MERN+Developer;Crafting+Pixel-Perfect+Digital+Experiences" alt="Typing Headline" width="100%" style="max-width: 650px;" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=18&pause=1000&color=38BDF8&center=true&vCenter=true&width=750&height=45&lines=Frontend+%26+UI%2FUX+Engineer;3D+Web+Graphics+%26+Animation+Specialist;Full-Stack+MERN+Developer;Crafting+Pixel-Perfect+Digital+Experiences" alt="Typing Headline" width="100%" style="max-width: 750px;" />
   </a>
 
   <br/><br/>
 
   <!-- Animated Cyberpunk Radar Contribution Heatmap -->
   <a href="https://github.com/bunnyvalluri/Bunnyvalluri">
-    <img src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/github-jet.svg?v=cyber-radar-8" alt="Cyberpunk Radar Contribution Heatmap" width="100%" />
+    <img src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/github-jet.svg?v=radar-v10" alt="Cyberpunk Radar Contribution Heatmap" width="100%" />
   </a>
 
   <br/><br/>
