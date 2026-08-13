@@ -1,13 +1,11 @@
 /**
- * Masterpiece Animated GitHub Contribution Heatmap SVG
- * Engineered by Senior UI/UX & Web Graphics Standards.
- *
+ * High-End Cyberpunk Radar Contribution Widget SVG
  * Features:
- *   - Sleek cyber stealth jet with glowing cyan wing accents & dual plasma thrusters
- *   - Perfectly proportioned canvas height (145px) eliminating empty bottom space
- *   - High-speed vertical laser streams launching directly from cannon points
- *   - Dual shockwave energy rings & bright neon cell pulses on impact
- *   - Twinkling starfield background & gradient card frame
+ *   - Cyber stealth interceptor with dynamic banking motion physics & dual wing cannons
+ *   - High-speed dual energy laser streams launching directly from cannon muzzles
+ *   - Rotating crosshair target locking rings & explosive radial particle bursts
+ *   - Particle exhaust thruster trail & neon cell glow
+ *   - Cyberpunk HUD header bar with live status indicators
  */
 
 import fs from "node:fs";
@@ -21,18 +19,18 @@ const ROWS = 7;
 const CELL = 11;
 const STEP = 14; // cell + gap
 const GRID_X = 20;
-const GRID_Y = 16;
+const GRID_Y = 22;
 const WIDTH = 513;
-const HEIGHT = 145; // Perfectly proportioned height without empty space
+const HEIGHT = 160;
 const JET_X_START = 35;
 const JET_X_END = 478;
-const JET_Y_POS = 124; // Jet vertical position
+const JET_Y_POS = 134; // Jet baseline position inside 160px canvas
 const LOOP_DUR = 20; // seconds, one full pass
-const MAX_TARGETS = 14; // target count
-const FLASH_COLOR = "#38bdf8";
+const MAX_TARGETS = 14; // busiest days target count
+const FLASH_COLOR = "#22d3ee";
 const SECONDARY_FLASH = "#34d399";
-const BLAST_COLOR = "#38bdf8";
-const PAD_Y = 118; // Laser launching point
+const BLAST_COLOR = "#22d3ee";
+const PAD_Y = 126; // Wing cannon laser launching height
 
 if (!USERNAME) {
   console.error("Missing GH_USERNAME env var");
@@ -153,7 +151,7 @@ function buildGrid(cells, targets) {
   for (const c of cells) {
     const isTarget = targetKey.has(`${c.col}-${c.row}`);
     if (!isTarget) {
-      svg += `<rect x="${c.x.toFixed(2)}" y="${c.y.toFixed(2)}" width="${CELL}" height="${CELL}" rx="2" ry="2" fill="${c.color}"/>\n`;
+      svg += `<rect x="${c.x.toFixed(2)}" y="${c.y.toFixed(2)}" width="${CELL}" height="${CELL}" rx="2.2" ry="2.2" fill="${c.color}"/>\n`;
       continue;
     }
     const tFwd = keyTimeForCol(c.col, "forward");
@@ -184,26 +182,27 @@ function buildBulletsAndBlasts(targets) {
       const cx = fmt(c.x + CELL / 2);
       const targetY = fmt(c.y + CELL / 2);
 
-      // Rotating Target Lock Ring
+      // Rotating Target Crosshair Lock
       blasts += `<g opacity="0">` +
-        `<circle cx="${cx}" cy="${targetY}" r="7" fill="none" stroke="#38bdf8" stroke-width="0.8" stroke-dasharray="3 2">` +
+        `<circle cx="${cx}" cy="${targetY}" r="7.5" fill="none" stroke="#22d3ee" stroke-width="0.9" stroke-dasharray="3 2">` +
         `<animate attributeName="opacity" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
         `keyTimes="0;${fmt(rise)};${fmt(arrive)};${fmt(fadeEnd)};1" values="0;1;0.8;0;0"/>` +
         `</circle>` +
         `</g>\n`;
 
-      // Vertical Laser Energy Pulse
+      // Dual High-Speed Laser Beam Pulse (Left & Right Cannon Streams)
       bullets += `<g opacity="0">` +
-        `<line x1="${cx}" y1="${PAD_Y}" x2="${cx}" y2="${targetY}" stroke="url(#laserGrad)" stroke-width="2.2"/>` +
+        `<line x1="${cx - 4}" y1="${PAD_Y}" x2="${cx - 1}" y2="${targetY}" stroke="url(#cyberLaserGrad)" stroke-width="1.8"/>` +
+        `<line x1="${cx + 4}" y1="${PAD_Y}" x2="${cx + 1}" y2="${targetY}" stroke="url(#cyberLaserGrad)" stroke-width="1.8"/>` +
         `<animate attributeName="opacity" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
         `keyTimes="0;${fmt(rise)};${fmt(arrive)};${fmt(fadeEnd)};1" values="0;0.9;1;0;0"/>` +
         `</g>\n`;
 
-      // Expanding Shockwave Burst
+      // Expanding Shockwave Burst + Directional Sparks
       blasts += `<g opacity="0">` +
         `<circle cx="${cx}" cy="${targetY}" r="0" fill="none" stroke="${BLAST_COLOR}" stroke-width="2">` +
         `<animate attributeName="r" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
-        `keyTimes="0;${fmt(arrive)};${fmt(arrive + dur * 3)};1" values="0;2;12;12"/>` +
+        `keyTimes="0;${fmt(arrive)};${fmt(arrive + dur * 3)};1" values="0;2;13;13"/>` +
         `<animate attributeName="opacity" dur="${LOOP_DUR}s" repeatCount="indefinite" ` +
         `keyTimes="0;${fmt(arrive)};${fmt(arrive + dur * 3)};1" values="0;1;0;0"/>` +
         `</circle>` +
@@ -221,18 +220,18 @@ function buildBulletsAndBlasts(targets) {
 
 function buildStars() {
   const pts = [
-    [10, 14, 1.2], [10, 55, 1.6], [10, 100, 2.0],
-    [503, 18, 1.2], [503, 62, 1.6], [503, 108, 2.0],
-    [45, 134, 1.4], [465, 134, 1.8], [255, 135, 2.2]
+    [10, 15, 1.2], [10, 55, 1.6], [10, 105, 2.0],
+    [503, 18, 1.2], [503, 62, 1.6], [503, 112, 2.0],
+    [45, 148, 1.4], [465, 148, 1.8], [255, 150, 2.2]
   ];
   return pts.map(([x, y, dur]) =>
-    `<circle cx="${x}" cy="${y}" r="1" fill="#38bdf8" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="${dur}s" repeatCount="indefinite"/></circle>`
+    `<circle cx="${x}" cy="${y}" r="1" fill="#22d3ee" opacity="0.5"><animate attributeName="opacity" values="0.2;0.9;0.2" dur="${dur}s" repeatCount="indefinite"/></circle>`
   ).join("\n");
 }
 
 function buildCyberJet() {
   return `<g id="jet-wrapper">
-  <!-- Motion Trajectory Translation -->
+  <!-- Motion Trajectory Translation across bottom track -->
   <g transform="translate(0, ${JET_Y_POS})">
     <animateTransform attributeName="transform" type="translate"
       dur="${LOOP_DUR}s" repeatCount="indefinite"
@@ -244,27 +243,34 @@ function buildCyberJet() {
       <animateTransform attributeName="transform" type="rotate"
         dur="${LOOP_DUR}s" repeatCount="indefinite"
         keyTimes="0;0.47;0.50;0.97;1"
-        values="10 0 0; 10 0 0; -10 0 0; -10 0 0; 10 0 0"/>
+        values="11 0 0; 11 0 0; -11 0 0; -11 0 0; 11 0 0"/>
 
-      <!-- Sleek Stealth Interceptor Jet Model -->
-      <polygon points="0,-18 11,8 5,4 -5,4 -11,8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.4"/>
-      <polygon points="-11,8 -16,13 -5,9" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>
-      <polygon points="11,8 16,13 5,9" fill="#0f172a" stroke="#38bdf8" stroke-width="0.8"/>
-      
-      <!-- Cyan Wing Muzzles -->
-      <circle cx="-14" cy="10" r="1.5" fill="#38bdf8"/>
-      <circle cx="14" cy="10" r="1.5" fill="#38bdf8"/>
-      
-      <!-- Glowing Cockpit -->
-      <path d="M-3,-6 Q0,-12 3,-6 Q0,-2 -3,-6 Z" fill="#e0f2fe" stroke="#38bdf8" stroke-width="0.8"/>
-      
-      <!-- Plasma Dual Thruster Flames -->
+      <!-- Sleek Stealth Interceptor Jet Fighter Model -->
+      <!-- Main Stealth Body -->
+      <polygon points="0,-20 13,8 5,4 -5,4 -13,8" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5"/>
+      <polygon points="0,-16 8,6 3,3 -3,3 -8,6" fill="#1e293b"/>
+
+      <!-- Neon Edge Glow Lines -->
+      <line x1="0" y1="-20" x2="13" y2="8" stroke="#22d3ee" stroke-width="1.6"/>
+      <line x1="0" y1="-20" x2="-13" y2="8" stroke="#22d3ee" stroke-width="1.6"/>
+
+      <!-- Wingtip Muzzle Cannons -->
+      <circle cx="-13" cy="8" r="1.8" fill="#22d3ee"/>
+      <circle cx="13" cy="8" r="1.8" fill="#22d3ee"/>
+      <circle cx="-13" cy="8" r="0.8" fill="#ffffff"/>
+      <circle cx="13" cy="8" r="0.8" fill="#ffffff"/>
+
+      <!-- Glowing Cockpit Canopy -->
+      <path d="M-3,-6 Q0,-14 3,-6 Q0,-2 -3,-6 Z" fill="#22d3ee" stroke="#ffffff" stroke-width="0.8"/>
+      <circle cx="0" cy="-7" r="1.2" fill="#ffffff"/>
+
+      <!-- Dual Plasma Thruster Flames -->
       <g>
-        <polygon points="-4,8 -1,8 -2.5,18" fill="url(#thrusterGrad)">
-          <animate attributeName="opacity" values="0.6;1;0.7;1" dur="0.15s" repeatCount="indefinite"/>
+        <polygon points="-5,7 -1,7 -3,17" fill="url(#thrusterGrad)">
+          <animate attributeName="opacity" values="0.6;1;0.7;1" dur="0.14s" repeatCount="indefinite"/>
         </polygon>
-        <polygon points="1,8 4,8 2.5,18" fill="url(#thrusterGrad)">
-          <animate attributeName="opacity" values="0.7;1;0.6;1" dur="0.18s" repeatCount="indefinite"/>
+        <polygon points="1,7 5,7 3,17" fill="url(#thrusterGrad)">
+          <animate attributeName="opacity" values="0.7;1;0.6;1" dur="0.16s" repeatCount="indefinite"/>
         </polygon>
       </g>
     </g>
@@ -279,52 +285,61 @@ function buildSvg(weeks) {
 
   return `<svg viewBox="0 0 ${WIDTH} ${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <!-- Linear Gradient for Vertical Laser Beams -->
-  <linearGradient id="laserGrad" x1="0%" y1="100%" x2="0%" y2="0%">
-    <stop offset="0%" stop-color="#38bdf8" stop-opacity="1"/>
-    <stop offset="60%" stop-color="#34d399" stop-opacity="0.85"/>
-    <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+  <!-- Cyber Laser Pulse Gradient -->
+  <linearGradient id="cyberLaserGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+    <stop offset="0%" stop-color="#22d3ee" stop-opacity="1"/>
+    <stop offset="50%" stop-color="#34d399" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
   </linearGradient>
 
-  <!-- Thruster Plasma Flame Gradient -->
+  <!-- Plasma Thruster Flame Gradient -->
   <linearGradient id="thrusterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-    <stop offset="0%" stop-color="#38bdf8"/>
+    <stop offset="0%" stop-color="#22d3ee"/>
     <stop offset="50%" stop-color="#fbbf24"/>
     <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
   </linearGradient>
 
-  <!-- Futuristic Cyber Border Gradient -->
-  <linearGradient id="frameBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#38bdf8"/>
+  <!-- Cyber Border Gradient -->
+  <linearGradient id="cyberBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#22d3ee"/>
     <stop offset="50%" stop-color="#818cf8"/>
     <stop offset="100%" stop-color="#34d399"/>
   </linearGradient>
 </defs>
 
 <!-- Outer Cyber Card Frame Container -->
-<rect x="1" y="1" width="${WIDTH - 2}" height="${HEIGHT - 2}" rx="10" ry="10" fill="#090d16" stroke="url(#frameBorderGrad)" stroke-width="1.2" opacity="0.95"/>
+<rect x="1" y="1" width="${WIDTH - 2}" height="${HEIGHT - 2}" rx="12" ry="12" fill="#050814" stroke="url(#cyberBorderGrad)" stroke-width="1.4" opacity="0.95"/>
 
 ${buildStars()}
+
+<!-- Cyber Radar HUD Top Status Bar -->
+<g transform="translate(18, 14)">
+  <circle cx="4" cy="-3" r="3" fill="#ef4444">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <text x="14" y="0" font-family="monospace" font-size="9" fill="#22d3ee" font-weight="bold" letter-spacing="1">LIVE RADAR // CONTRIBUTION INTERCEPT MATRIX v2.0</text>
+  <text x="475" y="0" font-family="monospace" font-size="9" fill="#818cf8" font-weight="bold" text-anchor="end">[ TARGETS: ${targets.length} ]</text>
+</g>
 
 <!-- Contribution Grid -->
 <g id="grid">
 ${buildGrid(cells, targets)}</g>
 
-<!-- High-Speed Dual Laser Streams -->
+<!-- Dual High-Speed Laser Pulse Streams -->
 <g id="bullets">
 ${bullets}</g>
 
-<!-- Dynamic Impact Shockwaves -->
+<!-- Dynamic Impact Shockwaves & Crosshairs -->
 <g id="blasts">
 ${blasts}</g>
 
-<!-- Cyber Stealth Jet Fighter -->
+<!-- Cyber Stealth Interceptor Jet -->
 ${buildCyberJet()}
 </svg>`;
 }
 
 async function main() {
-  console.log(`Generating masterpiece SVG jet heatmap for ${USERNAME}...`);
+  console.log(`Generating Cyberpunk Radar SVG heatmap for ${USERNAME}...`);
   const weeks = await fetchWeeks();
   const svg = buildSvg(weeks);
   const outPath = path.resolve(OUTPUT);

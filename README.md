@@ -17,9 +17,9 @@
 
   <br/><br/>
 
-  <!-- Animated Jet Contribution Heatmap -->
+  <!-- Animated Cyberpunk Radar Contribution Heatmap -->
   <a href="https://github.com/bunnyvalluri/Bunnyvalluri">
-    <img src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/github-jet.svg?v=masterpiece-jet-7" alt="Animated Jet Contribution Heatmap" width="100%" />
+    <img src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/github-jet.svg?v=cyber-radar-8" alt="Cyberpunk Radar Contribution Heatmap" width="100%" />
   </a>
 
   <br/><br/>
