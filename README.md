@@ -4,7 +4,7 @@
   <a href="https://github.com/bunnyvalluri/Bunnyvalluri">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/assets/images/dark.svg">
-      <img alt="Bunny Valluri | Engineering Profile Header" src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/assets/images/light.svg" width="100%">
+      <img alt="Bunny Valluri | Engineering Profile Header" src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/assets/images/light.svg" width="100%" />
     </picture>
   </a>
 
@@ -12,12 +12,12 @@
 
   <!-- Dynamic Typing Headline -->
   <a href="https://github.com/bunnyvalluri">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=38BDF8&center=true&vCenter=true&width=650&height=45&lines=Frontend+%26+UI%2FUX+Engineer;3D+Web+Graphics+%26+Animation+Specialist;Full-Stack+MERN+Developer;Crafting+Pixel-Perfect+Digital+Experiences" alt="Typing SVG Banner" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=38BDF8&center=true&vCenter=true&width=650&height=45&lines=Frontend+%26+UI%2FUX+Engineer;3D+Web+Graphics+%26+Animation+Specialist;Full-Stack+MERN+Developer;Crafting+Pixel-Perfect+Digital+Experiences" alt="Typing SVG Banner" width="100%" style="max-width: 650px;" />
   </a>
 
-  <br/>
+  <br/><br/>
 
-  <!-- Jet Contribution Heatmap -->
+  <!-- Animated Jet Heatmap -->
   <a href="https://github.com/bunnyvalluri/Bunnyvalluri">
     <img src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/github-jet.svg" alt="Animated Jet Contribution Heatmap" width="100%" />
   </a>
@@ -38,65 +38,57 @@
 
 ## 🚀 Executive Summary & Bio
 
-<table width="100%">
-  <tr>
-    <td width="62%" valign="top">
-      <h3>👋 Hi, I'm Valluri Rahul (Bunny)</h3>
-      <p>
-        I am a <strong>Frontend Engineer & Computer Science Engineering Candidate (B.Tech '25)</strong> at <strong>Narsimha Reddy Engineering College</strong>.
-      </p>
-      <p>
-        I bridge the gap between <strong>complex engineering backend architectures</strong> and <strong>high-end UI/UX designs</strong>. My core expertise spans modern JavaScript frameworks (React, Next.js), interactive 3D web animation, and scalable full-stack MERN systems.
-      </p>
+### 👋 Hi, I'm Valluri Rahul (Bunny)
 
-```quote
-"Crafting digital products where pixel precision, buttery smooth 60fps animations, and architectural performance converge."
-```
+I am a **Frontend Engineer & Computer Science Engineering Candidate (B.Tech '25)** at **Narsimha Reddy Engineering College**.
 
-  <h4>⚡ Core Engineering Focus</h4>
-      <ul>
-        <li>🎨 <strong>UI/UX Design Systems</strong>: Crafting accessible, responsive design components & micro-interactions.</li>
-        <li>🦋 <strong>Interactive 3D Web Graphics</strong>: Engineering WebGL & CSS3 3D particle transformations.</li>
-        <li>⚙️ <strong>Full-Stack Architecture</strong>: Building resilient REST APIs & MERN applications.</li>
-      </ul>
-    </td>
-    <td width="38%" valign="top" align="center">
-      <br/>
-      <a href="https://github.com/bunnyvalluri">
-        <img src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/languages.svg" width="100%" alt="Top Languages Overview" />
-      </a>
-      <br/><br/>
-      <a href="https://valluri-rahul-portfolio.vercel.app/" target="_blank">
-        <img src="https://img.shields.io/badge/🌐_Interactive_Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" width="95%" alt="Interactive Portfolio" />
-      </a>
-      <br/><br/>
-      <a href="https://buni.netlify.app/" target="_blank">
-        <img src="https://img.shields.io/badge/📂_Live_Builds_Directory-000000?style=for-the-badge&logo=netlify&logoColor=white" width="95%" alt="Builds Directory" />
-      </a>
-    </td>
-  </tr>
-</table>
+I bridge the gap between **complex backend architectures** and **high-end UI/UX designs**. My core expertise spans modern JavaScript frameworks (React, Next.js), interactive 3D web graphics, and scalable full-stack MERN applications.
+
+> *"Crafting digital products where pixel precision, buttery smooth 60fps animations, and architectural performance converge."*
+
+#### ⚡ Core Engineering Focus
+- 🎨 **UI/UX Design Systems**: Crafting accessible, responsive design components & micro-interactions.
+- 🦋 **Interactive 3D Web Graphics**: Engineering WebGL & CSS3 3D particle transformations.
+- ⚙️ **Full-Stack Architecture**: Building resilient REST APIs & MERN applications.
+
+<br/>
+
+<div align="center">
+
+  <!-- Top Languages Card (Fluid Responsive Width) -->
+  <a href="https://github.com/bunnyvalluri">
+    <img src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/languages.svg" alt="Top Languages Overview" width="100%" style="max-width: 480px;" />
+  </a>
+
+  <br/><br/>
+
+  <!-- Quick Action Buttons -->
+  <a href="https://valluri-rahul-portfolio.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Interactive_Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Interactive Portfolio" />
+  </a>
+  &nbsp;
+  <a href="https://buni.netlify.app/" target="_blank">
+    <img src="https://img.shields.io/badge/📂_Live_Builds_Directory-000000?style=for-the-badge&logo=netlify&logoColor=white" alt="Builds Directory" />
+  </a>
+
+</div>
 
 ---
 
 ## 🎯 Engineering Pillars
 
-<table width="100%">
-  <tr>
-    <td width="33%" align="center">
-      <h3>✨ UI/UX Precision</h3>
-      <p>Building intuitive interfaces with clean layout hierarchy, fluid micro-interactions, and accessible visual flow.</p>
-    </td>
-    <td width="33%" align="center">
-      <h3>⚡ High Performance</h3>
-      <p>Optimizing web graphics, bundle sizes, and DOM rendering pipelines for fast load times and 60fps performance.</p>
-    </td>
-    <td width="33%" align="center">
-      <h3>🛠️ Modular Architecture</h3>
-      <p>Structuring scalable React/Next.js components and RESTful microservices with clean code principles.</p>
-    </td>
-  </tr>
-</table>
+<div align="center">
+
+### ✨ UI/UX Precision
+Building intuitive interfaces with clean layout hierarchy, fluid micro-interactions, and accessible visual flow across all device viewports.
+
+### ⚡ High Performance
+Optimizing web graphics, bundle sizes, and DOM rendering pipelines for sub-second load times and 60fps performance.
+
+### 🛠️ Modular Architecture
+Structuring scalable React/Next.js components and RESTful microservices following clean code & SOLID principles.
+
+</div>
 
 ---
 
@@ -143,50 +135,49 @@
 
 ## 🌟 Featured Engineering Projects
 
-<table width="100%">
-  <tr>
-    <td width="50%" valign="top">
-      <h3 align="center">🦋 3D Butterfly Animation Engine</h3>
-      <p align="center">
-        <img src="https://img.shields.io/badge/Category-3D_Web_Graphics-38bdf8?style=flat-square" alt="Category" />
-        <img src="https://img.shields.io/badge/Tech-WebGL_%7C_CSS3_3D-818cf8?style=flat-square" alt="Tech" />
-      </p>
-      <p>
-        An interactive graphics experiment featuring fluid 3D transformations, complex spatial physics, and responsive rendering engines.
-      </p>
-      <ul>
-        <li>✨ Custom 3D particle kinematics & flutter mechanics</li>
-        <li>⚡ GPU-accelerated CSS3 matrix transformations</li>
-      </ul>
-      <p align="center">
-        <a href="https://bunnyvalluri.github.io/Butterfly-animation/" target="_blank">
-          <img src="https://img.shields.io/badge/🚀_Launch_Live_Demo-000000?style=for-the-badge&logo=github&logoColor=white" alt="Live Demo" />
-        </a>
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h3 align="center">💼 Interactive Developer Portfolio</h3>
-      <p align="center">
-        <img src="https://img.shields.io/badge/Category-Full_Stack_Portfolio-34d399?style=flat-square" alt="Category" />
-        <img src="https://img.shields.io/badge/Tech-React_%7C_Tailwind-fbbf24?style=flat-square" alt="Tech" />
-      </p>
-      <p>
-        Production-grade personal developer showcase engineered with dynamic glassmorphism UI, custom micro-animations, and responsive layout grids.
-      </p>
-      <ul>
-        <li>🎨 Glassmorphic design design system with custom theme tokens</li>
-        <li>⚡ Optimized asset loading & fast page transitions</li>
-      </ul>
-      <p align="center">
-        <a href="https://valluri-rahul-portfolio.vercel.app/" target="_blank">
-          <img src="https://img.shields.io/badge/🚀_Explore_Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="View Portfolio" />
-        </a>
-      </p>
-    </td>
-  </tr>
-</table>
+<div align="center">
 
+### 🦋 3D Butterfly Animation Engine
+<p align="center">
+  <img src="https://img.shields.io/badge/Category-3D_Web_Graphics-38bdf8?style=flat-square" alt="Category" />
+  <img src="https://img.shields.io/badge/Tech-WebGL_%7C_CSS3_3D-818cf8?style=flat-square" alt="Tech" />
+</p>
 
+An interactive graphics experiment featuring fluid 3D transformations, complex spatial physics, and responsive rendering engines.
+
+- ✨ Custom 3D particle kinematics & flutter mechanics
+- ⚡ GPU-accelerated CSS3 matrix transformations
+
+<p align="center">
+  <a href="https://bunnyvalluri.github.io/Butterfly-animation/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Launch_Live_Demo-000000?style=for-the-badge&logo=github&logoColor=white" alt="Live Demo" />
+  </a>
+</p>
+
+<br/>
+
+---
+
+### 💼 Interactive Developer Portfolio
+<p align="center">
+  <img src="https://img.shields.io/badge/Category-Full_Stack_Portfolio-34d399?style=flat-square" alt="Category" />
+  <img src="https://img.shields.io/badge/Tech-React_%7C_Tailwind-fbbf24?style=flat-square" alt="Tech" />
+</p>
+
+Production-grade personal developer showcase engineered with dynamic glassmorphism UI, custom micro-animations, and responsive layout grids.
+
+- 🎨 Glassmorphic design system with custom theme tokens
+- ⚡ Optimized asset loading & fast page transitions
+
+<p align="center">
+  <a href="https://valluri-rahul-portfolio.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/🚀_Explore_Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="View Portfolio" />
+  </a>
+</p>
+
+</div>
+
+---
 
 ## 🧩 Competitive Problem Solving
 
@@ -196,9 +187,11 @@
   <a href="https://leetcode.com/vallurirahul" target="_blank">
     <img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode Profile" />
   </a>
+  &nbsp;
   <a href="https://www.hackerrank.com/vallurirahul3" target="_blank">
     <img src="https://img.shields.io/badge/HackerRank-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white" alt="HackerRank Profile" />
   </a>
+  &nbsp;
   <a href="https://www.codechef.com/users/rahul05al" target="_blank">
     <img src="https://img.shields.io/badge/CodeChef-5B4636?style=for-the-badge&logo=codechef&logoColor=white" alt="CodeChef Profile" />
   </a>
@@ -214,12 +207,15 @@
   <a href="https://linkedin.com/in/valluri-rahul-a6a3b2241/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
+  &nbsp;
   <a href="mailto:vallurirahul3@gmail.com" target="_blank">
     <img src="https://img.shields.io/badge/Direct_Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
   </a>
+  &nbsp;
   <a href="https://instagram.com/_sy_rahul_23" target="_blank">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" />
   </a>
+  &nbsp;
   <a href="https://buni.netlify.app/" target="_blank">
     <img src="https://img.shields.io/badge/Live_Builds-00AD9F?style=for-the-badge&logo=netlify&logoColor=white" alt="Netlify Directory" />
   </a>
