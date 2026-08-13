@@ -17,9 +17,9 @@
 
   <br/><br/>
 
-  <!-- Animated Sci-Fi Jet Heatmap -->
+  <!-- Animated Space Rocket Contribution Heatmap 🚀 -->
   <a href="https://github.com/bunnyvalluri/Bunnyvalluri">
-    <img src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/github-jet.svg" alt="Animated Sci-Fi Jet Contribution Radar" width="100%" />
+    <img src="https://raw.githubusercontent.com/bunnyvalluri/Bunnyvalluri/main/dist/github-jet.svg?v=rocket-3" alt="Animated Space Rocket Contribution Radar 🚀" width="100%" />
   </a>
 
   <br/><br/>
