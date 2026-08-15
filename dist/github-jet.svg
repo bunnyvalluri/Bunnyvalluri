@@ -282,7 +282,8 @@
 <rect x="482.00" y="50.00" width="11" height="11" rx="2.5" ry="2.5" fill="#216e39"><animate attributeName="fill" dur="20s" repeatCount="indefinite" keyTimes="0;0.48;0.486;0.492;0.52;0.526;0.532;1" values="#216e39;#216e39;#22d3ee;#34d399;#216e39;#22d3ee;#34d399;#216e39"/></rect>
 <rect x="482.00" y="64.00" width="11" height="11" rx="2.2" ry="2.2" fill="#216e39"/>
 <rect x="482.00" y="78.00" width="11" height="11" rx="2.5" ry="2.5" fill="#216e39"><animate attributeName="fill" dur="20s" repeatCount="indefinite" keyTimes="0;0.48;0.486;0.492;0.52;0.526;0.532;1" values="#216e39;#216e39;#22d3ee;#34d399;#216e39;#22d3ee;#34d399;#216e39"/></rect>
-<rect x="482.00" y="92.00" width="11" height="11" rx="2.2" ry="2.2" fill="#ebedf0"/>
+<rect x="482.00" y="92.00" width="11" height="11" rx="2.2" ry="2.2" fill="#9be9a8"/>
+<rect x="482.00" y="106.00" width="11" height="11" rx="2.2" ry="2.2" fill="#ebedf0"/>
 </g>
 
 <!-- Dual High-Speed Laser Pulse Streams -->
