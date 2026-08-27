@@ -280,7 +280,8 @@
 <rect x="482.00" y="22.00" width="11" height="11" rx="2.2" ry="2.2" fill="#9be9a8"/>
 <rect x="482.00" y="36.00" width="11" height="11" rx="2.2" ry="2.2" fill="#40c463"/>
 <rect x="482.00" y="50.00" width="11" height="11" rx="2.2" ry="2.2" fill="#9be9a8"/>
-<rect x="482.00" y="64.00" width="11" height="11" rx="2.2" ry="2.2" fill="#ebedf0"/>
+<rect x="482.00" y="64.00" width="11" height="11" rx="2.2" ry="2.2" fill="#9be9a8"/>
+<rect x="482.00" y="78.00" width="11" height="11" rx="2.2" ry="2.2" fill="#9be9a8"/>
 </g>
 
 <!-- Dual High-Speed Laser Pulse Streams -->
